@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaNet", "AgendaNet\AgendaNet.csproj", "{1CD77495-032C-4145-AD12-C0D8A98C478D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorio", "Repositorio\Repositorio.csproj", "{2E9C12E8-0257-4D94-BA88-2CA358978B5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CD77495-032C-4145-AD12-C0D8A98C478D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CD77495-032C-4145-AD12-C0D8A98C478D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CD77495-032C-4145-AD12-C0D8A98C478D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CD77495-032C-4145-AD12-C0D8A98C478D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9C12E8-0257-4D94-BA88-2CA358978B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E9C12E8-0257-4D94-BA88-2CA358978B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E9C12E8-0257-4D94-BA88-2CA358978B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E9C12E8-0257-4D94-BA88-2CA358978B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E085125B-970A-4A5D-8369-A9A939EE3120}
+	EndGlobalSection
+EndGlobal

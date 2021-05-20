@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewData["Title"] = "Logar";
+}
+
+
+<style>
+    .btn-primary {
+        font-weight: bolder !important;
+    }
+
+        .btn-primary:hover {
+            background-color: #fff !important;
+            color: #262626 !important;
+        }
+
+    .btn:hover {
+        background-color: #fff !important;
+    }
+
+    .btn-sm {
+        background-color: #fff !important;
+    }
+
+    .btn-block {
+        background-color: #fff !important;
+    }
+
+    input {
+        font-size: 13px !important;
+    }
+</style>
+
+<br />
+
+<form method="post">
+    <div class="row">
+        <div class="container col-10 classContainer">
+            <br />
+            <h5 style="color: #ff952a !important">Login</h5>
+            <hr />
+            <div class="container form-group Labels ">
+                <br />
+                <div class="row">
+                    <div class="col-12 col-sm-3" style="margin-top:15px !important">
+
+                    </div>
+                    <div class="col-12 col-sm-6" style="margin-top:15px !important">
+                        <label>Usuário</label>
+                        <input type="text" id="usuario" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-3" style="margin-top:15px !important">
+
+                    </div>
+                    <div class="col-12 col-sm-6" style="margin-top:15px !important">
+                        <label>Senha</label>
+                        <input type="password" id="senha" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-3" style="margin-top:15px !important">
+
+                    </div>
+                    <div class="col-12 col-sm-4" style="margin-top:15px !important; font-size:10px !important">
+                        <input id="rbManterConectado" type="checkbox" /> Manter-se conectado
+                    </div>
+                    
+                    <div class="col-12 col-sm-4" style="margin-top:15px !important; font-size:10px !important">
+                        <a href="#" style="color:#ff952a  !important;">Esquecia a senha</a>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-12 col-sm-3">
+
+                    </div>
+                    <div class="col-12 col-sm-5">
+                        <button id="btnCadastrar" class="btn btn-primary btn-sm btn-block"
+                                style="background-color: #ff952a !important; border-color: #ff952a !important">
+                            Entrar
+                        </button>
+                    </div>
+                </div>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/js/jquery.mask.js"></script>
+    <script src="~/js/jquery.mask.min.js"></script>
+
+    <script>
+        $('#txtTelefone').mask('(00) 0000-0000');
+        $('#txtCnpj').mask('00.000.000/0000-00');
+    </script>
+
+
+}

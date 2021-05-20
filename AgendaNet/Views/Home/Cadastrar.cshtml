@@ -1,0 +1,163 @@
+﻿@model AgendaNet.Models.TelefoneModel
+
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<style>
+    .btn-primary {
+        font-weight: bolder !important;
+    }
+
+        .btn-primary:hover {
+            background-color: #fff !important;
+            color: #262626 !important;
+        }
+
+    .btn:hover {
+        background-color: #fff !important;
+    }
+
+    .btn-sm {
+        background-color: #fff !important;
+    }
+
+    .btn-block {
+        background-color: #fff !important;
+    }
+
+    input {
+        font-size: 13px !important;
+    }
+</style>
+
+<br />
+
+<form method="post" asp-action="Salvar" asp-controller="Home">
+    <div class="row">
+        <div class="container col-10 classContainer">
+            <br />
+            <h5 style="color: #ff952a !important">Cadastro de Empresa</h5>
+            <hr />
+            <div class="container form-group Labels" style=" width: 600px; margin-top: 15px !important">
+                <div class="row">
+                    <div class="col-12 col-sm-12">
+                        <label>Nome</label>
+                        <input asp-for="empresa.NomeEmpresa" type="text" id="nome" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6" style="margin-top:15px !important">
+                        <label>CNPJ</label>
+                        <input asp-for="empresa.CnpjEmpresa" type="text" id="txtCnpj" class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-2" style="margin-top:15px !important">
+                        <label>DDD</label>
+                        <input asp-for="DddTelefone" type="text" id="ddd" class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-4" style="margin-top:15px !important">
+                        <label>Telefone</label>
+                        <input asp-for="NumeroTelefone" type="text" id="txtTelefone" class="form-control" />
+                    </div>
+                </div>
+                <div class="row" style="margin-top:15px !important">
+                    <div class="col-12 col-sm-3">
+                        <label>Estado</label>
+                        <select id="cbEstado" class="form-control" style="font-size:13px !important">
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-9">
+                        <label>Cidade</label>
+                        <input id="cidade" type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12" style="margin-top:15px !important">
+                        <label>Usuário</label>
+                        <input asp-for="empresa.LoginEmpresa" type="text" id="usuario" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6" style="margin-top:15px !important">
+                        <label>Senha</label>
+                        <input asp-for="empresa.SenhaEmpresa" type="password" id="senha" class="form-control" />
+                    </div>
+                    <div class="col-12 col-sm-6" style="margin-top:15px !important">
+                        <label>Confirmar Senha</label>
+                        <input type="password" id="confirmarSenha" class="form-control" />
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-12 col-sm-3">
+
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <button id="btnCadastrar" class="btn btn-primary btn-sm btn-block"
+                                style="background-color: #ff952a !important; border-color: #ff952a !important">
+                            Cadastrar
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="form-group d-flex justify-content-center">
+                            <div>
+                                <span class="@ViewData["sucesso"]"><small>@ViewData["mensagem"]</small></span>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/js/jquery.mask.js"></script>
+    <script src="~/js/jquery.mask.min.js"></script>
+
+    <script>
+        $('#txtTelefone').mask('0000-0000');
+        $('#txtCnpj').mask('00.000.000/0000-00');
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            ListarEstados();
+
+            function ListarEstados() {
+
+                var selectbox = $('#cbEstado');
+                selectbox.html("<option value='0'>Selecione</option>");
+                $.ajax({
+                    url: "/Home/GetEstados",
+                    type: "POST",
+                    dataType: "json",
+                    data: {},
+                    success: function (data) {
+                        console.log(data);
+                        $.each(data, function (i, d) {
+                            selectbox.append('<option value="' + d.codEstado + '">' + d.nomeEstado + '</option>');
+                        });
+                    }
+                })
+            }
+
+            $('#btnCadastrar').click(function () {
+                //Validation/
+                if ($('#cbEstado').val() == "0") {
+                    alert('O estado é obrigatório!');
+                    return;
+                }
+                if ($('#txtStart').val().trim() == "" || $('#txtEnd').val().trim() == "") {
+                    alert('Data de período do atestado é Obrigatório!');
+                    return;
+                }
+            });
+    </script>
+
+}
