@@ -10,12 +10,12 @@ namespace AgendaNet.Models
     {
         [Key]
         [Display(Name = "codigo")]
-        public int CodEstado { get; set; }
+        public string cod_estado { get; set; }
 
         [Display(Name = "Sigla")]
-        public string SiglaEstado { get; set; }
+        public string sigla_estado { get; set; }
 
         [Display(Name = "Estado")]
-        public string NomeEstado { get; set; }
+        public string nome_estado { get; set; }
     }
 }

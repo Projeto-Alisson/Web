@@ -11,6 +11,18 @@ namespace Repositorio
 {
     public class EmpresaRepositorio : BaseRepository<Empresa>
     {
+        public Empresa verificaCNPJ(String email)
+        {
+            Empresa obj = null;
 
+            using (agendanetContext db = new agendanetContext())
+            {
+                obj = (from e in db.Empresas
+                       where e.CnpjEmpresa == email
+                       select e).FirstOrDefault();    
+            }
+
+            return obj;
+        }
     }
 }

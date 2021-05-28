@@ -20,5 +20,18 @@ namespace Repositorio
             }
             return lista;
         }
+
+        public List<VwCidadeEstado> GetCidades(int codigo)
+        {
+            List<VwCidadeEstado> lista = null;
+            using (agendanetContext db = new agendanetContext())
+            {
+                lista = (from v in db.VwCidadeEstados
+                         where v.CodEstado == codigo
+                         orderby v.CodEstado
+                         select v).ToList();
+            }
+            return lista;
+        }
     }
 }

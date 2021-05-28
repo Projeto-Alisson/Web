@@ -14,6 +14,5 @@ namespace Repositorio.Models
         public DateTime? DataTelefone { get; set; }
 
         public virtual Empresa CodEmpresaNavigation { get; set; }
-
     }
 }

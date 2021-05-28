@@ -61,14 +61,15 @@
                     </div>
                 </div>
                 <div class="row" style="margin-top:15px !important">
-                    <div class="col-12 col-sm-3">
+                    <div class="col-12 col-sm-5">
                         <label>Estado</label>
                         <select id="cbEstado" class="form-control" style="font-size:13px !important">
                         </select>
                     </div>
-                    <div class="col-12 col-sm-9">
+                    <div class="col-12 col-sm-7">
                         <label>Cidade</label>
-                        <input id="cidade" type="text" class="form-control" />
+                        <select id="cbCidade" class="form-control" style="font-size:13px !important">
+                        </select>
                     </div>
                 </div>
                 <div class="row">
@@ -147,6 +148,29 @@
                 })
             }
 
+            function ListarCidades(id) {
+
+                var selectbox = $('#cbCidade');
+                selectbox.html("<option value='0'>Selecione</option>");
+                $.ajax({
+                    url: "/Home/getCidades?estado=" +  id,
+                    type: "GET",
+                    dataType: "json",
+                    data: {},
+                    success: function (data) {
+                        console.log(data);
+                        $.each(data, function (i, d) {
+                            selectbox.append('<option value="' + d.codCidade + '">' + d.nomeCidade + '</option>');
+                        });
+                    }
+                })
+            }
+
+            $('#cbEstado').change(function () {
+            /*console.log($(this).val());*/
+                ListarCidades($(this).val());                
+            });
+
             $('#btnCadastrar').click(function () {
                 //Validation/
                 if ($('#cbEstado').val() == "0") {
@@ -158,6 +182,7 @@
                     return;
                 }
             });
+        });
     </script>
 
 }

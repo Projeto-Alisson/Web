@@ -13,3 +13,4 @@ C:\Users\willi\Desktop\AgendaNet\Repositorio\obj\Debug\net5.0\Repositorio.dll
 C:\Users\willi\Desktop\AgendaNet\Repositorio\obj\Debug\net5.0\ref\Repositorio.dll
 C:\Users\willi\Desktop\AgendaNet\Repositorio\obj\Debug\net5.0\Repositorio.pdb
 C:\Users\willi\Desktop\AgendaNet\Repositorio\obj\Debug\net5.0\Repositorio.genruntimeconfig.cache
+C:\Users\willi\Desktop\AgendaNet\Repositorio\obj\Debug\net5.0\EFCoreMySqlJsonMicrosoft.cs

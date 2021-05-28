@@ -11,14 +11,16 @@ using Repositorio.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
-
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace AgendaNet.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
+        
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -27,6 +29,7 @@ namespace AgendaNet.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
 
@@ -82,30 +85,37 @@ namespace AgendaNet.Controllers
                         if (model.empresa.SenhaEmpresa == model.empresa.ConfirmaSenhaEmpresa)
                         {
 
-
-
-                            if (model.empresa.CodEmpresa == 0)
+                            if ((new EmpresaRepositorio()).verificaCNPJ(model.empresa.CnpjEmpresa) == null)
                             {
-                                (new EmpresaRepositorio()).add(emp);
-                                tel.CodEmpresa = emp.CodEmpresa;
-                                tel.DataTelefone = DateTime.Now;
-                                //end.CodEmpresa = emp.CodEmpresa;
 
-                                (new TelefoneRepositorio()).add(tel);
-                                //(new EnderecoRepositorio()).add(end);
-                                ViewData["mensagem"] = "Conta criada com sucesso!";
-                                ViewData["sucesso"] = "alert alert-success";
+                                if (model.empresa.CodEmpresa == 0)
+                                {
+                                    (new EmpresaRepositorio()).add(emp);
+                                    tel.CodEmpresa = emp.CodEmpresa;
+                                    tel.DataTelefone = DateTime.Now;
+                                    //end.CodEmpresa = emp.CodEmpresa;
+
+                                    (new TelefoneRepositorio()).add(tel);
+                                    //(new EnderecoRepositorio()).add(end);
+                                    ViewData["mensagem"] = "Conta criada com sucesso!";
+                                    ViewData["sucesso"] = "alert alert-success";
+                                }
+                                else
+                                {
+                                    (new EmpresaRepositorio()).edit(emp);
+                                    tel.CodEmpresa = emp.CodEmpresa;
+                                    //end.CodEmpresa = emp.CodEmpresa;
+
+                                    (new TelefoneRepositorio()).edit(tel);
+                                    //(new EnderecoRepositorio()).edit(end);
+                                    ViewData["mensagem"] = "Dados alterados com sucesso!";
+                                    ViewData["sucesso"] = "alert alert-success";
+                                }
                             }
                             else
                             {
-                                (new EmpresaRepositorio()).edit(emp);
-                                tel.CodEmpresa = emp.CodEmpresa;
-                                //end.CodEmpresa = emp.CodEmpresa;
-
-                                (new TelefoneRepositorio()).edit(tel);
-                                //(new EnderecoRepositorio()).edit(end);
-                                ViewData["mensagem"] = "Dados alterados com sucesso!";
-                                ViewData["sucesso"] = "alert alert-success";
+                                ViewData["mensagem"] = "O CNPJ informado já possui cadastro!";
+                                ViewData["sucesso"] = "alert alert-danger";
                             }
                         }
                         else
@@ -147,6 +157,17 @@ namespace AgendaNet.Controllers
                 retorno = false;
 
             return retorno;
+        }
+
+
+        [HttpGet]
+        public JsonResult getCidades(int estado)
+        {
+            List<VwCidadeEstado> lista = (new EstadoRepositorio()).GetCidades(estado);
+            var mapper = new Mapper(AutoMapperConfig.RegisterMappings());
+            List<vw_CidadeEstadoModel> listaModel = mapper.Map<List<vw_CidadeEstadoModel>>(lista);
+
+            return new JsonResult(listaModel);
         }
     }
 }

@@ -22,13 +22,14 @@ namespace Repositorio.Models
         public virtual DbSet<Endereco> Enderecos { get; set; }
         public virtual DbSet<Estado> Estados { get; set; }
         public virtual DbSet<Telefone> Telefones { get; set; }
+        public virtual DbSet<VwCidadeEstado> VwCidadeEstados { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server= den1.mssql8.gear.host ; Database= agendanet; User Id=agendanet;Password=Gm35y?-r9tbC;");
+                optionsBuilder.UseSqlServer("Server= den1.mysql2.gear.host ; Database= trabalisson; User Id=trabalisson; Password=trabalisson;");
             }
         }
 
@@ -162,6 +163,33 @@ namespace Repositorio.Models
                     .WithMany(p => p.Telefones)
                     .HasForeignKey(d => d.CodEmpresa)
                     .HasConstraintName("FK_telefone_empresa");
+            });
+
+            modelBuilder.Entity<VwCidadeEstado>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("vw_CidadeEstado");
+
+                entity.Property(e => e.CodCidade).HasColumnName("cod_cidade");
+
+                entity.Property(e => e.CodEstado).HasColumnName("cod_estado");
+
+                entity.Property(e => e.NomeCidade)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("nome_cidade");
+
+                entity.Property(e => e.NomeEstado)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("nome_estado");
+
+                entity.Property(e => e.SiglaEstado)
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .HasColumnName("sigla_estado")
+                    .IsFixedLength(true);
             });
 
             OnModelCreatingPartial(modelBuilder);
