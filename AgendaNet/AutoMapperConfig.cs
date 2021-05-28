@@ -26,6 +26,8 @@ namespace AgendaNet
                 cfg.CreateMap<TelefoneModel, Telefone>();
                 cfg.CreateMap<Empresa, EmpresaModel>();
                 cfg.CreateMap <EmpresaModel, Empresa>();
+                cfg.CreateMap<VwCidadeEstado, vw_CidadeEstadoModel>();
+                cfg.CreateMap<vw_CidadeEstadoModel, VwCidadeEstado>();
 
             });
             return config;
