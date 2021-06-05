@@ -23,7 +23,6 @@ C:\Users\willi\Desktop\AgendaNet\AgendaNet\obj\Debug\net5.0\scopedcss\bundle\Age
 C:\Users\willi\Desktop\AgendaNet\AgendaNet\obj\Debug\net5.0\AgendaNet.TagHelpers.input.cache
 C:\Users\willi\Desktop\AgendaNet\AgendaNet\obj\Debug\net5.0\AgendaNet.TagHelpers.output.cache
 C:\Users\willi\Desktop\AgendaNet\AgendaNet\obj\Debug\net5.0\AgendaNet.RazorCoreGenerate.cache
-C:\Users\willi\Desktop\AgendaNet\AgendaNet\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\willi\Desktop\AgendaNet\AgendaNet\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\willi\Desktop\AgendaNet\AgendaNet\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\willi\Desktop\AgendaNet\AgendaNet\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -463,3 +462,4 @@ C:\Users\willi\Desktop\AgendaNet\AgendaNet\bin\Debug\net5.0\System.Net.Http.Form
 C:\Users\willi\Desktop\AgendaNet\AgendaNet\bin\Debug\net5.0\System.Net.Http.Primitives.dll
 C:\Users\willi\Desktop\AgendaNet\AgendaNet\bin\Debug\net5.0\System.Text.Json.dll
 C:\Users\willi\Desktop\AgendaNet\AgendaNet\obj\Debug\net5.0\Razor\Views\Estado\Index.cshtml.g.cs
+C:\Users\willi\Desktop\AgendaNet\AgendaNet\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs

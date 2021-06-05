@@ -9,21 +9,23 @@ namespace AgendaNet.Models
 {
     public class EmpresaModel
     {
+        
         [Key]
         [Display(Name = "codigo")]
-        public int CodEmpresa { get; set; }
-        
-        [Display(Name ="Nome")]
-        public string NomeEmpresa { get; set; }
+        public String cod_empresa { get; set; }
+
+        [Display(Name = "Nome")]
+        public String nome_empresa { get; set; }
 
         [Display(Name = "CNPJ")]
-        public string CnpjEmpresa { get; set; }
+        public String cnpj_empresa { get; set; }
 
         [Display(Name = "Login")]
-        public string LoginEmpresa { get; set; }
-
+        public String login_empresa { get; set; }
+        
         [Display(Name = "Senha")]
-        public string SenhaEmpresa { get; set; }
+        public String senha_empresa { get; set;}
+
         public string ConfirmaSenhaEmpresa { get; set; }
 
         public Telefone telefone;
